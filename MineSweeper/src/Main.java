@@ -64,7 +64,7 @@ public class Main {
         // Mine Count
         int mineNumber = mineNumber(elementNum);
 
-        int 
+        int moveCount = elementNum - mineNumber;
 
         System.out.println("mine num = " + mineNumber);
 
@@ -125,6 +125,13 @@ public class Main {
                 }
                 System.out.println();
 
+            }
+
+            moveCount--;
+
+            if(moveCount == 0) {
+                System.out.println("Congratulations YOU WIN !!!");
+                break;
             }
 
 
