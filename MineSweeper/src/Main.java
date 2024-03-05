@@ -47,12 +47,14 @@ public class Main {
         int col = 0;
 
         do {
-            System.out.println("Enter row: ");
+            System.out.print("Enter row: ");
             isInt(input);
             row = input.nextInt();
-            System.out.println("Enter col: ");
+            System.out.print("Enter col: ");
             isInt(input);
             col = input.nextInt();
+
+            System.out.println("===========================");
 
         } while (!isCheck(row, col));
 
@@ -66,7 +68,7 @@ public class Main {
 
         int moveCount = elementNum - mineNumber;
 
-        System.out.println("mine num = " + mineNumber);
+        //System.out.println("mine num = " + mineNumber);
 
         int mineRow, mineCol;
 
@@ -95,39 +97,53 @@ public class Main {
         do {
             int temp = 0;
 
-            System.out.print("Enter destination row : ");
-            isInt(input);
-            userRow = input.nextInt();
+            do {
+                System.out.print("Enter destination row : ");
+                isInt(input);
+                userRow = input.nextInt();
 
-            System.out.print("Enter destination col : ");
-            isInt(input);
-            userCol = input.nextInt();
+                System.out.print("Enter destination col : ");
+                isInt(input);
+                userCol = input.nextInt();
+                System.out.println("===========================");
 
-            if (!((userRow < row && userRow >= 0) && (userCol >= 0 && userCol < col))) {
-                System.out.println("Please try again!!");
-            }
-
-            temp = neighborMineCount(mineArray,userRow,userCol);
-           // System.out.println(temp);
-
-            String mineCount = String.valueOf(temp);
+                if (!((userRow < row && userRow >= 0) && (userCol >= 0 && userCol < col))) {
+                    System.out.println("Please try again!!");
+                }
+            } while(!((userRow < row && userRow >= 0) && (userCol >= 0 && userCol < col)));
 
             if(mineArray[userRow][userCol].equals("*")) {
                 System.out.println("GAME OVER !!!");
                 break;
             }
 
+            temp = neighborMineCount(mineArray,userRow,userCol);
+           // System.out.println(temp);
+
+            String mineCount = String.valueOf(temp);
             mineArray[userRow][userCol] = mineCount;
+
+            //Mine control
+
+
+
 
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < col; j++) {
-                    System.out.print(mineArray[i][j] + " ");
+                    if(mineArray[i][j].equals("*")){
+                        System.out.print("- ");
+                    } else{
+                        System.out.print(mineArray[i][j] + " ");
+                    }
+
                 }
                 System.out.println();
 
             }
 
             moveCount--;
+
+
 
             if(moveCount == 0) {
                 System.out.println("Congratulations YOU WIN !!!");
