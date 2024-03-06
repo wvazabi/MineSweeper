@@ -19,11 +19,6 @@ public class MineSweeper {
         return true;
     }
 
-    // Method to calculate the number of mines based on the total number of elements
-    public int calculateMineNumber(int element) {
-        return element / 4;
-    }
-
     // Method to count the number of neighboring mines
     public int neighborMineCount(String[][] arr, int row, int col) {
         int count = 0;
@@ -63,7 +58,7 @@ public class MineSweeper {
         String[][] mineArray = new String[row][col];
 
         int elementNum = (row * col);
-        int mineNumber = calculateMineNumber(elementNum); // Calculate the number of mines
+        int mineNumber = elementNum / 4 ; // Calculate the number of mines
 
         int moveCount = elementNum - mineNumber; // Calculate the number of moves
 
