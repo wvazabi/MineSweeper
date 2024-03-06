@@ -5,7 +5,7 @@ public class MineSweeper {
     // Method to check if the input is an integer
     public static void isInt(Scanner input) {
         while (!input.hasNextInt()) {
-            System.out.println("Please enter a valid integer number.\n");
+            System.out.print("Please enter a valid integer number!!\t: ");
             input.next();
         }
     }
@@ -13,7 +13,7 @@ public class MineSweeper {
     // Method to check if the row and column values are valid
     public boolean isCheck(int row, int col) {
         if (row < 2 || col < 2) {
-            System.out.println("Please enter dimensions of at least 2x2 for the game board!\n");
+            System.out.println("Please enter dimensions of at least 2x2 for the game board!!\n");
             return false;
         }
         return true;
@@ -44,11 +44,11 @@ public class MineSweeper {
 
         // Prompt the user to enter the row and column values until they are valid
         do {
-            System.out.print("Please enter the number of rows \t: ");
+            System.out.print("Please enter the number of rows \t\t: ");
             isInt(input);
 
             row = input.nextInt();
-            System.out.print("Please enter the number of columns \t: ");
+            System.out.print("Please enter the number of columns \t\t: ");
             isInt(input);
 
             col = input.nextInt();
