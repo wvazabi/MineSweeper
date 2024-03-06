@@ -5,7 +5,7 @@ public class MineSweeper {
     // Method to check if the input is an integer
     public static void isInt(Scanner input) {
         while (!input.hasNextInt()) {
-            System.out.println("Invalid value please enter an integer number");
+            System.out.println("Please enter a valid integer number.\n");
             input.next();
         }
     }
@@ -13,14 +13,14 @@ public class MineSweeper {
     // Method to check if the row and column values are valid
     public boolean isCheck(int row, int col) {
         if (row < 2 || col < 2) {
-            System.out.println("Please enter a value of 2x2 or bigger!!");
+            System.out.println("Please enter dimensions of at least 2x2 for the game board!\n");
             return false;
         }
         return true;
     }
 
     // Method to calculate the number of mines based on the total number of elements
-    public int mineNumber(int element) {
+    public int calculateMineNumber(int element) {
         return element / 4;
     }
 
@@ -41,6 +41,7 @@ public class MineSweeper {
 
     // Method to start the game
     public void startGame() {
+
         Scanner input = new Scanner(System.in);
 
         int row = 0;
@@ -48,21 +49,21 @@ public class MineSweeper {
 
         // Prompt the user to enter the row and column values until they are valid
         do {
-            System.out.print("Enter row: ");
+            System.out.print("Please enter the number of rows \t: ");
             isInt(input);
-            row = input.nextInt();
-            System.out.print("Enter col: ");
-            isInt(input);
-            col = input.nextInt();
-            System.out.println("===========================");
 
+            row = input.nextInt();
+            System.out.print("Please enter the number of columns \t: ");
+            isInt(input);
+
+            col = input.nextInt();
+            System.out.println("=====================================");
         } while (!isCheck(row, col));
 
-        String[][] arr = new String[row][col];
         String[][] mineArray = new String[row][col];
 
         int elementNum = (row * col);
-        int mineNumber = mineNumber(elementNum); // Calculate the number of mines
+        int mineNumber = calculateMineNumber(elementNum); // Calculate the number of mines
 
         int moveCount = elementNum - mineNumber; // Calculate the number of moves
 
@@ -92,18 +93,18 @@ public class MineSweeper {
 
             // Prompt the user to enter the destination row and column
             do {
-                System.out.print("Enter destination row : ");
+                System.out.print("Please enter the destination row\t: ");
                 isInt(input);
                 userRow = input.nextInt();
 
-                System.out.print("Enter destination col : ");
+                System.out.print("Please enter the destination column\t: ");
                 isInt(input);
                 userCol = input.nextInt();
-                System.out.println("===========================");
+                System.out.println("=====================================");
 
                 // Check if the user input is valid
                 if (!((userRow < row && userRow >= 0) && (userCol >= 0 && userCol < col))) {
-                    System.out.println("Please try again!!");
+                    System.out.println("Invalid destination. Please try again!!");
                 }
             } while (!((userRow < row && userRow >= 0) && (userCol >= 0 && userCol < col)));
 
@@ -139,7 +140,7 @@ public class MineSweeper {
 
             // Check if the player has won the game
             if (moveCount == 0) {
-                System.out.println("Congratulations YOU WIN !!!");
+                System.out.println("You have emerged victorious! Congratulations! \uD83C\uDF89");
                 break;
             }
 
