@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class MineSweeper {
@@ -58,25 +59,42 @@ public class MineSweeper {
         String[][] mineArray = new String[row][col];
 
         int elementNum = (row * col);
+
         int mineNumber = elementNum / 4 ; // Calculate the number of mines
+        
+
 
         int moveCount = elementNum - mineNumber; // Calculate the number of moves
 
         // Generate random mine locations
         int mineRow, mineCol;
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                mineArray[i][j] = "-";
+            }
+        }
+
         for (int i = 0; i < mineNumber; i++) {
+
+
             mineRow = (int) (Math.random() * row);
             mineCol = (int) (Math.random() * col);
-            mineArray[mineRow][mineCol] = "*";
+
+
+
+            if(mineArray[mineRow][mineCol].equals("*")){
+                i--;
+            } else {
+                mineArray[mineRow][mineCol] = "*";
+            }
+
         }
 
         // Display mine locations
         System.out.println("\nMines Locations");
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
-                if (mineArray[i][j] == null) {
-                    mineArray[i][j] = "-";
-                }
                 System.out.print(mineArray[i][j] + " ");
             }
             System.out.println();
