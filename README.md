@@ -41,4 +41,10 @@ To run the Minesweeper game, you need to have Java installed on your computer. F
 5. If you uncover a mine, the game ends.
 6. If you uncover all safe cells, you win the game.
 
+##Images
+
+| Case: WIN   | Case: LOSE       | Validations    |
+| ----------- | ---------------- | -------------- |
+| <img src="https://github.com/wvazabi/MineSweeper/blob/main/MineSweeper%20Images/Image%20%232.png" weight="300" height="450"> | <img src="https://github.com/wvazabi/MineSweeper/blob/main/MineSweeper%20Images/Image%20%231.png" weight="300" height="450"> | <img src="https://github.com/wvazabi/MineSweeper/blob/main/MineSweeper%20Images/Image%20%233.png" weight="300" height="450"> |
+
 
