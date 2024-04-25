@@ -9,6 +9,7 @@ public class Main {
         // Create Minesweeper object
         MineSweeper mineSweeper = new MineSweeper();
 
+        
         mineSweeper.startGame();
 
     }
